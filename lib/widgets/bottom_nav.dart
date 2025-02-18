@@ -42,13 +42,13 @@ class _BottomNavState extends State<BottomNav> {
       if (index == 0) {
         Navigator.pushReplacementNamed(context, '/dashboard');
       } else if (index == 1) {
-        Navigator.pushReplacementNamed(context, '/movie');
+        Navigator.pushReplacementNamed(context, '/barang');
       }
     } else if (role == "user") {
       if (index == 0) {
         Navigator.pushReplacementNamed(context, '/dashboard');
       } else if (index == 1) {
-        Navigator.pushReplacementNamed(context, '/pesan');
+        Navigator.pushReplacementNamed(context, '/pesanan');
       }
     }
   }
@@ -69,7 +69,7 @@ class _BottomNavState extends State<BottomNav> {
                 ),
                 BottomNavigationBarItem(
                   icon: Icon(Icons.file_copy),
-                  label: 'Movie',
+                  label: 'barang',
                 ),
               ])
         : role == "user"
@@ -85,7 +85,7 @@ class _BottomNavState extends State<BottomNav> {
                     ),
                     BottomNavigationBarItem(
                       icon: Icon(Icons.card_giftcard),
-                      label: 'Pesan',
+                      label: 'pesanan',
                     ),
                   ])
             : Text("");

@@ -1,6 +1,8 @@
 
 import 'package:flutter/material.dart';
-import 'package:movie2url/models/user_login.dart';
+import 'package:movie2url/widgets/bottom_nav.dart';
+
+import '../models/user_login.dart';
 
 class DashboardView extends StatefulWidget {
   const DashboardView({super.key});
@@ -47,7 +49,8 @@ class _DashboardViewState extends State<DashboardView> {
               icon: Icon(Icons.logout))
         ],
       ),
-      body: Center(child: Text("Selamat Datang $nama role anda $role")),
+      body: Center(child: Text("Selamat Datang toko kami $nama role anda $role")),
+      bottomNavigationBar: BottomNav(0),
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movie2url/widgets/bottom_nav.dart';
 
 
 class MovieView extends StatefulWidget {
@@ -15,11 +16,12 @@ class _MovieViewState extends State<MovieView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Movie"),
+        title: Text("Barang"),
         backgroundColor: Colors.green,
         foregroundColor: Colors.white,
       ),
-      body: Text("Movie"),
+      body: Text("barang"),
+      bottomNavigationBar: BottomNav(1),
     );
   }
 }

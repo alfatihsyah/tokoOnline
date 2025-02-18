@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movie2url/widgets/bottom_nav.dart';
 
 
 class PesanView extends StatefulWidget {
@@ -15,11 +16,12 @@ class _PesanViewState extends State<PesanView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Pesan"),
+        title: Text("Pesanan"),
         backgroundColor: Colors.green,
         foregroundColor: Colors.white,
       ),
-      body: Text("Pesan"),
+      body: Text("Pesanan"),
+      bottomNavigationBar: BottomNav(1),
     );
   }
 }
