@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:movie2url/services/user.dart';
 import 'package:movie2url/widgets/alert.dart';
@@ -35,6 +34,8 @@ class _RegisterUserViewState extends State<RegisterUserView> {
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
   List roleChoice = ["admin", "user"];
+  TextEditingController addres = TextEditingController();
+  TextEditingController ulang_tahun = TextEditingController();
   String? role;
 
   @override
@@ -119,6 +120,29 @@ class _RegisterUserViewState extends State<RegisterUserView> {
                               }
                             },
                           ),
+                          TextFormField(
+                            controller: addres,
+                            decoration: InputDecoration(label: Text("addres")),
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return 'harus diisi';
+                              } else {
+                                return null;
+                              }
+                            },
+                          ),
+                          TextFormField(
+                            controller: ulang_tahun,
+                            decoration:
+                                InputDecoration(label: Text("ulang tahun")),
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return 'harus diisi';
+                              } else {
+                                return null;
+                              }
+                            },
+                          ),
                           MaterialButton(
                             onPressed: () async {
                               if (formKey.currentState!.validate()) {
@@ -127,12 +151,16 @@ class _RegisterUserViewState extends State<RegisterUserView> {
                                   "email": email.text,
                                   "role": role,
                                   "password": password.text,
+                                  "addres": addres.text,
+                                  "ulang_tahun": ulang_tahun.text,
                                 };
                                 var result = await user.registerUser(data);
                                 if (result.status == true) {
                                   name.clear();
                                   email.clear();
                                   password.clear();
+                                  addres.clear();
+                                  ulang_tahun.clear();
                                   setState(() {
                                     role = null;
                                   });
@@ -147,7 +175,6 @@ class _RegisterUserViewState extends State<RegisterUserView> {
                             child: Text("Register"),
                             color: Colors.lightGreen,
                           ),
-                          
                         ],
                       ))
                 ],

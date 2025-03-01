@@ -1,1 +1,1 @@
-final String BaseUrl = "https://learn.smktelkom-mlg.sch.id/api";
+final String BaseUrl = "http://localhost/fateh_laravel/public/api";

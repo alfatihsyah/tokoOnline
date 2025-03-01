@@ -5,7 +5,7 @@ class UserLogin {
   String? token;
   String? message;
   int? id;
-  String? nama_user;
+  String? name;
   String? email;
   String? role;
   UserLogin(
@@ -13,7 +13,7 @@ class UserLogin {
       this.token,
       this.message,
       this.id,
-      this.nama_user,
+      this.name,
       this.email,
       this.role});
 
@@ -23,7 +23,7 @@ class UserLogin {
     prefs.setString("token", token!);
     prefs.setString("message", message!);
     prefs.setInt("id", id!);
-    prefs.setString("nama_user", nama_user!);
+    prefs.setString("nama_user", name!);
     prefs.setString("email", email!);
     prefs.setString("role", role!);
   }
@@ -35,7 +35,7 @@ class UserLogin {
         token: prefs.getString("token")!,
         message: prefs.getString("message")!,
         id: prefs.getInt("id")!,
-        nama_user: prefs.getString("nama_user")!,
+        name: prefs.getString("nama_user")!,
         email: prefs.getString("email")!,
         role: prefs.getString("role")!);
     return userLogin;

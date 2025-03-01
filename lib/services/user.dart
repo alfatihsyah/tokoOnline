@@ -7,7 +7,7 @@ import 'package:movie2url/models/response_data_map.dart';
 
 class UserService {
   Future registerUser(data) async {
-    var uri = Uri.parse(url.BaseUrl + "/auth/register");
+    var uri = Uri.parse(url.BaseUrl + "/register_admin");
     var register = await http.post(uri, body: data);
 
 
@@ -36,21 +36,23 @@ class UserService {
   }
 
   Future loginUser(data) async {
-    var uri = Uri.parse(url.BaseUrl + "/auth/login");
+    var uri = Uri.parse(url.BaseUrl + "/login");
+    // print(uri);
     var loginUser = await http.post(uri, body: data);
-
+    // print(loginUser.statusCode);
 
     if (loginUser.statusCode == 200) {
       var data = json.decode(loginUser.body);
+      print(data["status"]);
       if (data["status"] == true) {
         UserLogin userLogin = UserLogin(
             status: data["status"],
-            token: data["token"],
+            token: data["authorisation"]["token"],
             message: data["message"],
-            id: data["user"]["id"],
-            nama_user: data["user"]["nama_user"],
-            email: data["user"]["email"],
-            role: data["user"]["role"]);
+            id: data["data"]["id"],
+            name : data["data"]["name"],
+            email: data["data"]["email"],
+            role: data["data"]["role"]);
         await userLogin.prefs();
         ResponseDataMap response = ResponseDataMap(
             status: true, message: "Sukses login user", data: data);
